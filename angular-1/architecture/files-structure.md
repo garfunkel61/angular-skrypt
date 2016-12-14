@@ -15,29 +15,28 @@ Struktura funkcjonalna
 - przykład na podstawie aplikacji CRUD ksiazek
 
 
-
-      app/
-          index.js
-          categories/
-              categories.module.js
-              categories.html
-              categories.spec.js
-          books/
-              list-books/
-                  list-books.module.js
-                  list-books.html
-              create-book/
-                  create-book.module.js
-                  create-book.html
-              edit-book/
-                  edit-book.module.js
-                  edit-book.html
-              books.module.js
-              books.html
-              books.spec.js
-          common/
-            books-model/
-            categories-model/
+    app/
+      index.js
+      categories/
+          categories.module.js
+          categories.html
+          categories.spec.js
+      books/
+          list-books/
+              list-books.module.js
+              list-books.html
+          create-book/
+              create-book.module.js
+              create-book.html
+          edit-book/
+              edit-book.module.js
+              edit-book.html
+          books.module.js
+          books.html
+          books.spec.js
+      common/
+        books-model/
+    categories-model/
 
 
 - nazwy modulow: [foldery.plik.typ] 'books.list-books.module'
