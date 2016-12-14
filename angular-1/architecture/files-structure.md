@@ -15,6 +15,7 @@ Struktura funkcjonalna
 - przykład na podstawie aplikacji CRUD ksiazek
 
 
+
       app/
           index.js
           categories/
