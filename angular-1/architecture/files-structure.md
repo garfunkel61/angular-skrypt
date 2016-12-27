@@ -4,6 +4,7 @@ Struktura plikow
 - może być dowolna
 - wiele różnych metod dzielenia aplikacji na pliki
 - najwazniejsze aby byc spojnym w sposobie tworzenia strkutury plikow i folderow
+- ! stosuj konsekwetnie jedno podejscie w ramach projektu !
 
 ***
 
@@ -40,3 +41,19 @@ Struktura funkcjonalna
 
 
 - nazwy modulow: [foldery.plik.typ] 'books.list-books.module'
+
+
+Struktura typowa
+----------------
+
+- zakłada podział folderó∑ i plików zgodnie z typami komponentów jakimi są
+- przydatna tylko dla małych aplikacji
+
+    app/
+      index.js
+      controllers/
+        first.controller.js
+        second.controller.js
+      services/
+        first.service.js
+        second.service.js

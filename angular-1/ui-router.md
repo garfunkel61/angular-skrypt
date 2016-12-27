@@ -66,7 +66,13 @@ $stateProvider
 $urlRouterProvider
 ------------------
 
-- dopisać
+- umozliwia obsluge dodatkowa podanych adresów url
+- posiada dwie podstawowe metodyL .when() i .otherwise()
+
+- .when() -sluzy do przekierowan, przyjuje dwa parametry
+  - 1 parametr: - wpisany url (moze byc regexp)
+  - 2 parametr: - url na ktory przeikerujemy
+- .otherwise() - słuzy do przekirewoania wszystkich niezdefiniowanych w state'ach lub .when()'ach url na podany url
 
 
 ***
