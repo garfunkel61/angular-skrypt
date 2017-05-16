@@ -11,7 +11,7 @@ Rejestrowanie serwisu:
 
 - ! tworzony servis nie jest z definicji providerowany:
       WARNING Service is generated but not provided, it must be provided to be used
-- należy go manualnie dostarczyć do modułu (zarejestrować w niej):
+- należy go manualnie dostarczyć do modułu (zarejestrować w nim):
   - w pliku modułu (np app.module.ts) w obiekcjie konfiguracji modułu jest właściwość providers, która jest tablicą zarejestrownaych modułów. Importujemy do pliku nasz serwis, i umieszczamy go w tablicy providerów
 
 Konsumowanie serwisu:
@@ -23,7 +23,9 @@ Konsumowanie serwisu:
         ...
         constructor(private mail: MailService) {...}
 - dzięki temu na obiekcie conponentu mamy dostępny obiekt serwisu pod zmienną mail, i możemy korzystać w kodzie oraz html'u:
-       {{ mail.message }}
+       html: {{ mail.message }}
+
+       klasa: this.mail.message
 
 Tworzenie manualne serwisu:
 
@@ -38,7 +40,7 @@ Tworzenie manualne serwisu:
       message: String = 'Message form service';
 
       }
-- tworzenie zmiennych na klasie serwisy - po prostu dodajemy właściwość i po niej = z odpowiednią wartością
+- tworzenie zmiennych na klasie serwisu - po prostu dodajemy właściwość i po niej = z odpowiednią wartością
 
 ### Obsługa serwisu za pomocą injectora
 

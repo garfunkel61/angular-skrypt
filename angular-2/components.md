@@ -9,7 +9,7 @@ Tworzyć komponenty możemy za pomocą angular-cli:
 - taki component jest automatycznie rejestrownay w module
   - w pliku modułu (np app.module.ts) w obiekcjie konfiguracji modułu jest właściwość declarations (tablica), gdzie deklarujemy zaimportowane componenty
 
-Składani podstawowa komponentu ng2:
+Składania podstawowa komponentu ng2:
 
       import {Component} from '@angular/core';
 
