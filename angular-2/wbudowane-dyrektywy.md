@@ -1,4 +1,4 @@
-Wbudowane componenty
+Wbudowane componenty i dyrektywy
 ------
 
 ### ngFor - iterowanie w html
@@ -11,6 +11,19 @@ Wbudowane componenty
           </ol>
 
 - można iterować po componentach, przekazując im dane
+- można wyśiwetlić index, dodając w ngFor let i = index
+        *ngFor="...; let i = index;"
+- ..
+
+### ngSwitch - warunkowe wyświetlanie elementów
+
+- pozwala warunkowo wyświetlić elementu html zgodnie z wartością przypisaną dyrektywie
+- nie wyswietlany elemnt nie jest totadny do DOM
+      <p [ngSwitch]="item.value">
+          <span *ngSwitchCase="yes">Yes</span>
+          <span *ngSwitchCase="no">No</span>
+          <span *ngSwitchDefault>Default</span>
+      </p>
 
 ### ngModel - 2way data binding
 
