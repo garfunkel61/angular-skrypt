@@ -11,7 +11,7 @@
 - plik router importuje ModuleWithProviders oraz Routes, RouterModule
 - plik tworzy const routes typu Routes, bedący tablicą obiektów route, zawierających ścieżkę oraz component który dany route obsługuje
 
-#### Przykłado podstawowej konfiguracji routera:
+#### Przykład podstawowej konfiguracji routera:
 
       // Buildin modules
       import { ModuleWithProviders }  from '@angular/core';
@@ -74,3 +74,93 @@
           ]
          }
       ];
+
+## Widoki chronione (protected)
+
+- na podstawie: https://blog.thoughtram.io/angular/2016/07/18/guards-in-angular-2.html
+- są powszenie wykorzystywane do zabezpiecznie widoków (urli) przed określonymi userami (np. logowanie)
+- w ng2 mamy 4 typy zabezpieczen widoków:
+  - CanActivate
+  - CanActivateChild
+  - CanDeactivate
+  - CanLoa
+- zabezpiecznie (Strażnik) to tak naprawdę funkcje zwracjące:
+  - Observabla<boolean>
+  - Promis<boolean>
+  - boolean
+
+- implementować Strażników możemy za pomocą:
+  - funkcji
+  - classy
+
+### Tworzenie za pomocą funkcji
+
+- tworzymy prosty provider który jest funkcją zwracającą jakiś typ booleanu
+
+      @NgModule({
+        ...
+        providers: [
+          provide: 'CanAlwaysActivateGuard',
+          useValue: () => {
+            return true;
+            }
+          ],
+          ...
+      })
+
+ - urzywanym w routech jako element tabli canActivate obiektu routu
+
+       export const AppRoutes:RouterConfig = [
+         {
+           path: '',
+           component: SomeComponent,
+           canActivate: ['CanAlwaysActivateGuard']
+         }
+       ];
+
+- dzieki tablicy możemy mieć wielu Strażników strzegących dany route
+
+### Tworzenie za pomocą classy
+
+- jeżeli dane Strażnik potrebuje mieć jakieś serwisy z naszej aplikacjie, to powinniśmy go trzyć jako klasę, do której wstrzykniemy serwisy
+- taki Strażnik jest implementacją @Injectable(), czyli klasycznym providerem
+- taki Strażnik musi posiadać jedną z medot których zabezpiecznie będzie realizował:
+  - canActivate()
+  - canActivateChild()
+  - canDeactivate()
+
+      import { Injectable } from '@angular/core';
+      import { CanActivate } from '@angular/router';
+      import { AuthService } from './auth.service';
+
+      @Injectable()
+      export class CanActivateViaAuthGuard implements CanActivate {
+
+        constructor(private authService: AuthService) {}
+
+        canActivate() {
+          return this.authService.isLoggedIn();
+        }
+      }
+
+- w module musi być zarejestrowany jak klasyczny provider:
+
+      @NgModule({
+        ...
+        providers: [
+          AuthService,
+          CanActivateViaAuthGuard
+        ]
+      })
+      export class AppModule {}
+
+- a następnie może być użyty jako Strażnik
+
+      { 
+        path: '',
+        component: SomeComponent,
+        canActivate: [
+          'CanAlwaysActivateGuard',
+          CanActivateViaAuthGuard
+        ]
+      }
