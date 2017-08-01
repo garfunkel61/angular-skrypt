@@ -1,0 +1,23 @@
+# Typy waściwości klas
+
+# Public i Private w obiektach
+
+- obiekty mogą mieć publiczne i prywante właściwości definiowane
+- dzieki temu, publiczne włąsciowści obiektu są dostępne na jego instancji, a prywatne nie
+- należe pamietać że jest to jedynie na czas transpilacji, a nie działania kodu (nic nie daje z bezpieczenstwa)
+
+## Public vs private w serwisach ng2
+
+- jeżeli serivce (klasa) posiada publiczną własciowość / metodę, to może być ona wykorzystywana tam gdzie injectujemy services
+- jeżeli serivce (klasa) posiada prywatną własciowość / metodę, to będzie ona niedostępna na instacji serwisu tam gdzei do injectujemy
+- dokładniej: https://stackoverflow.com/a/37506946/1484847
+
+# Static
+
+- dostępne są jedynie na klasie - nie na instancji klasy
+- poprzedznie słowem kluczowym static
+
+## Static w ng2
+
+- mogą być tworzone np. na serwisie
+- servis ten nie musi być injectowany do componentu, można po prostu importować jego klasę i z jej użyciem stosować metody statyczne serwisu w componecie

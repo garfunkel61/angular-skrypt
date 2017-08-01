@@ -156,7 +156,7 @@
 
 - a następnie może być użyty jako Strażnik
 
-      { 
+      {
         path: '',
         component: SomeComponent,
         canActivate: [
@@ -164,3 +164,8 @@
           CanActivateViaAuthGuard
         ]
       }
+
+### Daktywacja
+
+- może być urzywana jako zabezpiecznie przed opuszczeniem danego routu
+- może prosić o potwierdzenie gdy użytwkonik chce opuścić niezapisany formularz
